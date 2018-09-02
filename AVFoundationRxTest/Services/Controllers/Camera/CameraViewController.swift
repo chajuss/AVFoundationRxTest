@@ -38,16 +38,18 @@ final class CameraViewController: UIViewController, BindableType {
             })
             .disposed(by: disposeBag)
         
-        viewModel.outputs.videoSessionObservable.subscribe(onNext: { [weak self] value in
-            guard let strongSelf = self else { return }
-            guard let strongValue = value else { return }
-            strongSelf.videoSession = strongValue
-            strongSelf.videoPreviewLayer = AVCaptureVideoPreviewLayer(session: strongSelf.videoSession)
-            strongSelf.videoPreviewLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
-            strongSelf.videoPreviewLayer.frame = strongSelf.previewView.bounds
-            //                    strongSelf.videoPreviewLayer.connection?.videoOrientation = AVCaptureVideoOrientation.landscapeRight
-            strongSelf.previewView.layer.addSublayer(strongSelf.videoPreviewLayer)
-            strongSelf.videoSession!.startRunning()
+        viewModel.outputs.videoSessionObservable
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { [weak self] value in
+                guard let strongSelf = self else { return }
+                guard let strongValue = value else { return }
+                strongSelf.videoSession = strongValue
+                strongSelf.videoPreviewLayer = AVCaptureVideoPreviewLayer(session: strongSelf.videoSession)
+                strongSelf.videoPreviewLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
+                strongSelf.videoPreviewLayer.frame = strongSelf.previewView.bounds
+                //                    strongSelf.videoPreviewLayer.connection?.videoOrientation = AVCaptureVideoOrientation.landscapeRight
+                strongSelf.previewView.layer.addSublayer(strongSelf.videoPreviewLayer)
+                strongSelf.videoSession!.startRunning()
         }).disposed(by: disposeBag)
         
         recordButton.rx.tap
@@ -90,8 +92,8 @@ final class CameraViewController: UIViewController, BindableType {
     private func errorMessage(title: String, text: String) {
         alert(title: title,
               text: text)
-            .subscribe({  _ in
-                print("error message")
+            .subscribe({  [weak self] _ in
+                self?.viewModel.actions.logoutAction.execute(Void())
             })
             .disposed(by: disposeBag)
     }
