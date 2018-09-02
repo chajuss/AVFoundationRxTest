@@ -24,7 +24,6 @@
 		878C30CA2120719A00B6ADA2 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878C30C92120719A00B6ADA2 /* LoginViewModel.swift */; };
 		878C30CE212071C400B6ADA2 /* CameraViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878C30CD212071C400B6ADA2 /* CameraViewModel.swift */; };
 		878C30D02120721D00B6ADA2 /* LoginProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878C30CF2120721D00B6ADA2 /* LoginProvider.swift */; };
-		878C30D22120722B00B6ADA2 /* LoginProviderType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878C30D12120722B00B6ADA2 /* LoginProviderType.swift */; };
 		878C30D82120759400B6ADA2 /* AudioVideoProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878C30D72120759400B6ADA2 /* AudioVideoProvider.swift */; };
 		878C30DA2121A65100B6ADA2 /* UIViewController+rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878C30D92121A65100B6ADA2 /* UIViewController+rx.swift */; };
 		878C30DC212AEEFA00B6ADA2 /* AudioVideoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878C30DB212AEEFA00B6ADA2 /* AudioVideoManager.swift */; };
@@ -50,7 +49,6 @@
 		878C30C92120719A00B6ADA2 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		878C30CD212071C400B6ADA2 /* CameraViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewModel.swift; sourceTree = "<group>"; };
 		878C30CF2120721D00B6ADA2 /* LoginProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginProvider.swift; sourceTree = "<group>"; };
-		878C30D12120722B00B6ADA2 /* LoginProviderType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginProviderType.swift; sourceTree = "<group>"; };
 		878C30D72120759400B6ADA2 /* AudioVideoProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioVideoProvider.swift; sourceTree = "<group>"; };
 		878C30D92121A65100B6ADA2 /* UIViewController+rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+rx.swift"; sourceTree = "<group>"; };
 		878C30DB212AEEFA00B6ADA2 /* AudioVideoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioVideoManager.swift; sourceTree = "<group>"; };
@@ -207,7 +205,6 @@
 			isa = PBXGroup;
 			children = (
 				878C30CF2120721D00B6ADA2 /* LoginProvider.swift */,
-				878C30D12120722B00B6ADA2 /* LoginProviderType.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -372,7 +369,6 @@
 				878C30CE212071C400B6ADA2 /* CameraViewModel.swift in Sources */,
 				878C30A0212053D900B6ADA2 /* AppDelegate.swift in Sources */,
 				878C30D82120759400B6ADA2 /* AudioVideoProvider.swift in Sources */,
-				878C30D22120722B00B6ADA2 /* LoginProviderType.swift in Sources */,
 				878C30B32120572100B6ADA2 /* AVCaptureDevice+rx.swift in Sources */,
 				878C30C0212057BE00B6ADA2 /* Scene+ViewController.swift in Sources */,
 				878C30BE212057AA00B6ADA2 /* SceneCoordinator.swift in Sources */,

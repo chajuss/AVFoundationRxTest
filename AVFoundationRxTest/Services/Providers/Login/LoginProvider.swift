@@ -8,6 +8,23 @@
 
 import Foundation
 import RxSwift
+import Result
+
+enum LoginError: Error {
+    case unknownError
+    case wrongID
+    case wrongCredentials
+    case serviceUnavailable
+}
+
+typealias LoginResult = Result<Bool, LoginError>
+
+protocol LoginProviderType {
+    
+    @discardableResult
+    func login() -> Observable<LoginResult>
+    
+}
 
 struct LoginProvider: LoginProviderType {
     
