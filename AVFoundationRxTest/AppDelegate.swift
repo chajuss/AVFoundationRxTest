@@ -16,6 +16,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        let loginProvider = LoginProvider()
+        let sceneCoordinator = SceneCoordinator(window: window!)
+        
+        let loginViewModel = LoginViewModel(loginProvider: loginProvider, coordinator: sceneCoordinator)
+        let firstScene = Scene.login(loginViewModel)
+        sceneCoordinator.transition(to: firstScene, type: .root)
         return true
     }
 
@@ -40,7 +46,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
+    
+//    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
+//        if let rootViewController = self.topViewControllerWithRootViewController(rootViewController: window?.rootViewController) {
+//            if (rootViewController.responds(to: Selector(("canRotate")))) {
+//                // Unlock landscape view orientations for this view controller
+//                return .allButUpsideDown;
+//            }
+//        }
+//        
+//        // Only allow portrait (standard behaviour)
+//        return .portrait;
+//    }
+//    
+//    private func topViewControllerWithRootViewController(rootViewController: UIViewController!) -> UIViewController? {
+//        if (rootViewController == nil) { return nil }
+//        if (rootViewController.isKind(of: UITabBarController.self)) {
+//            return topViewControllerWithRootViewController(rootViewController: (rootViewController as! UITabBarController).selectedViewController)
+//        } else if (rootViewController.isKind(of: UINavigationController.self)) {
+//            return topViewControllerWithRootViewController(rootViewController: (rootViewController as! UINavigationController).visibleViewController)
+//        } else if (rootViewController.presentedViewController != nil) {
+//            return topViewControllerWithRootViewController(rootViewController: rootViewController.presentedViewController)
+//        }
+//        return rootViewController
+//    }
 
 }
 
